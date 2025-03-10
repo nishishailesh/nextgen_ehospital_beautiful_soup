@@ -4,6 +4,6 @@ After=multi-user.target
 
 [Service]
 Type=simple
-ExecStart=/home/binochemistry/bs/rip.py
+ExecStart=/home/biochemistry/bs/rip.py
 [Install]
 WantedBy=multi-user.target

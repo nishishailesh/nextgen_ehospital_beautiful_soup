@@ -1,0 +1,9 @@
+[Unit]
+Description=pythin script to read ehospital patient demography from browser saved file and update mysql database
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/root/projects/bs/rip.py
+[Install]
+WantedBy=multi-user.target

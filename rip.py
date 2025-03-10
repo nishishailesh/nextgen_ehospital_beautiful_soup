@@ -3,16 +3,25 @@ from bs4 import BeautifulSoup
 import datetime,fcntl,os, logging, shutil,time,sys
 import mysql_lis
 
+
+########for configuration########
+
 #For mysql password
 sys.path.append('/var/gmcs_config')
 import astm_var_clg as astm_var
+#for log file
 logging.basicConfig(filename='/var/log/ehospital.log',level=logging.DEBUG)  
+#for data folder
+data_folder="/home/biochemistry/ehospital.data"
+
+
+##########End of configuration#####
 
 def main():
   field_dictionary={0:'UHID',1:'mobile',2:'prefix',3:'name',4:'middlename',5:'surname',6:'sex',7:'DOB',8:'f8',9:'billing_type',10:'f10',11:'f11',12:'department',13:'unit',14:'address',15:'f15',16:'f16',17:'clinic'}
 
   try:
-    html_file=open("/root/projects/bs/data/NextGen eHospital.html")
+    html_file=open("{}/NextGen eHospital.html".format(data_folder))
     fcntl.flock(html_file, fcntl.LOCK_EX | fcntl.LOCK_NB)
     html_data=html_file.read()
     soup=BeautifulSoup(html_data,'lxml')
@@ -38,13 +47,13 @@ def main():
    
   #remove folder
   try:
-    shutil.rmtree("/root/projects/bs/data/NextGen eHospital_files")
+    shutil.rmtree("{}/NextGen eHospital_files".format(data_folder))
   except Exception as my_ex:
     logging.debug(my_ex)
    
   #remove file
   try:  
-    os.remove("/root/projects/bs/data/NextGen eHospital.html")
+    os.remove("{}/NextGen eHospital.html".format(data_folder))
   except Exception as my_ex:
     logging.debug(my_ex)
 

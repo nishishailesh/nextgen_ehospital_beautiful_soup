@@ -8,11 +8,11 @@ Python script to get nextgen ehospital patient demography from saved pages and i
     - save data to mysql table
     - It can be used by other softwares to minimize manual data entry of patient demographics
 ### Project###
-download
-go to utility
-./COPY_SERVICE
-./INSTALL_SERVICE
-./mk_folders
-./reset_everything
+download\
+go to utility\
+./COPY_SERVICE\
+./INSTALL_SERVICE\
+./mk_folders\
+./reset_everything\
 Note: copy ehospital (it is logrotate file) to /etc/logrotate.d (if Debian)
 
